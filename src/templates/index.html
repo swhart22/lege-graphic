@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+  </head>
+
+  <body>
+    <style>
+      *{
+        box-sizing:border-box;
+      }
+      #container{
+        position:relative;
+        width:620px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+      #chartwrapper{
+        width:100%;
+        position:relative;
+      }
+      #tooltip{
+        display:none;
+        position:absolute;
+        pointer-events:none;
+        background-color:#fff;
+        padding:5px;
+        border-radius:2px;
+        opacity:0.9;
+        border-color:#C0C0C0;
+        border-width:1px;
+        border-style:solid;
+        box-shadow: 2px 3px #DBDBDA;
+        max-width:200px;
+      }
+      #tooltip div{
+        margin-bottom:10px;
+      }
+      #legend {
+        font-family:'Arimo', sans-serif;
+        width:300px;
+        font-size:14px;
+        margin-bottom:10px;
+      }
+      .legend-line{
+        display:flex;
+        align-items:center;
+        margin-bottom:3px;
+      }
+      .tip-bill-title{
+        font-family:'Arimo', sans-serif;
+        font-weight:800;
+        font-size:14px;
+      }
+      .tip-bill-id{
+        font-family:'Arimo', sans-serif;
+        font-size:12px;
+      }
+      .tip-bill-groups{
+        font-family:'Arimo', sans-serif;
+        font-size:12px;
+      }
+      .state-div{
+        margin-bottom:20px;
+      }
+      .state-name{
+        font-family:'Roboto', sans-serif;
+        font-size:25px;
+        font-weight:300;
+        width:100%;
+        margin-bottom:5px;
+      }
+      .session-div{
+        display:flex;
+        align-items:center;
+        padding-top:5px;
+        padding-bottom:5px;
+        flex-wrap:wrap;
+      }
+      .session-label{
+        font-family:'Arimo', sans-serif;
+        font-weight:800;
+        font-size:14px;
+        margin-right:10px;
+      }
+      .impact-div{
+        display:flex;
+      }
+      .positive-cont .bill-div, .positive-bill-div-legend{
+        background-color:#53A9DC;
+      }
+      .negative-cont .bill-div, .negative-bill-div-legend{
+        background-color:#EEC535;
+      }
+
+      .bill-div, .positive-bill-div-legend, .negative-bill-div-legend{
+        width:10px;
+        height:10px;
+        border-radius:5px;
+        margin-right:2px;
+        margin-bottom:2px;
+      }
+
+    @media screen and (max-width: 620px) {
+      #container{
+        width:100%;
+      }
+    }
+
+    </style>
+
+    <div id="container">
+      <div id="legend">
+        <div class="legend-line"><div class="positive-bill-div-legend"></div> <div>= bill rated as <strong>positive</strong> for the environment</div></div>
+        <div class="legend-line"><div class="negative-bill-div-legend"></div> <div>= bill rated as <strong>negative</strong> for the environment</div></div>
+      </div>
+      <div id="chartwrapper">
+        <div id="tooltip">
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
