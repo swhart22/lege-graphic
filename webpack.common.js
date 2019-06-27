@@ -9,6 +9,8 @@ const paths = {
 	data: path.join(__dirname, 'data')
 }
 
+let environment = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+
 module.exports = {
 	entry: {
 		app: './src/index.js'
@@ -42,6 +44,12 @@ module.exports = {
 					'css-loader'
 				]
 			},
+			{
+        test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+        }]
+      },
 			{
 				test:/\.(png|svg|jpg|gif)$/,
 				use: [
