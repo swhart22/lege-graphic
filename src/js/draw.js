@@ -86,7 +86,6 @@ function draw(Data){
 					billMouseOut(d, billCirc)
 				})
 
-			
 			let billHover = function(d, billCirc) {
 				let natleft = billCirc.node().offsetLeft + 15
 				let nattop = billCirc.node().offsetTop + 15
@@ -127,7 +126,7 @@ function draw(Data){
 					.style('display', 'none');
 			}
 
-
+			xtalk.signalIframe();
 			console.log(byImpactBySession)
 
 		})

@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
    crossorigin=""/>
+   <script src="https://data.nbcstations.com/js/crosstalk.js"></script>
+    <script type="text/javascript">
+         document.addEventListener("DOMContentLoaded", function() {
+            xtalk.responsive = false;
+            xtalk.init();
+         });
+    </script>
   </head>
 
   <body>
@@ -15,9 +22,12 @@
       *{
         box-sizing:border-box;
       }
+      body {
+        margin:0px;
+      }
       #container{
         position:relative;
-        width:620px;
+        width:100%;
         margin-left:auto;
         margin-right:auto;
       }
@@ -167,19 +177,20 @@
     }
 
     </style>
-
-    <div id="container">
-      <div id="legend">
-        <div class="legend-line"><div class="positive-bill-div-legend"></div> <div>= bill rated as <strong>positive</strong> for the environment</div></div>
-        <div class="legend-line"><div class="negative-bill-div-legend"></div> <div>= bill rated as <strong>negative</strong> for the environment</div></div>
-        <div class="legend-line"><div class="positive-passed-bill-div-legend bill-div"></div><div class="negative-passed-bill-div-legend bill-div"></div> <div>: borders indicate bills ultimately passed by state legislatures*</div></div>
-        <div class="info"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> Click a bill for more information </div>
-      </div>
-      <div id="chartwrapper">
-        <div id="tooltip">
+    <div id=”xtalk”  class="parent" style="width:100%; padding-bottom:35px; overflow:auto">
+      <div id="container">
+        <div id="legend">
+          <div class="legend-line"><div class="positive-bill-div-legend"></div> <div>= bill rated as <strong>positive</strong> for the environment</div></div>
+          <div class="legend-line"><div class="negative-bill-div-legend"></div> <div>= bill rated as <strong>negative</strong> for the environment</div></div>
+          <div class="legend-line"><div class="positive-passed-bill-div-legend bill-div"></div><div class="negative-passed-bill-div-legend bill-div"></div> <div>: borders indicate bills ultimately passed by state legislatures*</div></div>
+          <div class="info"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> Click a bill for more information </div>
         </div>
+        <div id="chartwrapper">
+          <div id="tooltip">
+          </div>
+        </div>
+        <div class="footnote">*Includes bills passed with or without governor's signatures, as well as bills vetoed by the governor for which the veto was consequently overridden by legislature</div>
       </div>
-      <div class="footnote">*Includes bills passed with or without governor's signatures, as well as bills vetoed by the governor for which the veto was consequently overridden by legislature</div>
     </div>
 
   <script type="text/javascript" src="app.bundle.js"></script></body>
